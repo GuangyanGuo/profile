@@ -9,28 +9,34 @@ class Projects extends Component {
     super(props); 
     this.closePopup = this.closePopup.bind(this);
     this.ProjectButtonClicked = this.ProjectButtonClicked.bind(this);
-    const {currentProject, changeCurrent} = props
+    const {changeCurrent} = props
    
     const { projects } = props;
     this.state = {
       currentProject: this.props.currentProject
     };
     this.renderPopup = this.renderPopup.bind(this);
-   
+    this.storeContainerRef = this.storeContainerRef.bind(this);
     
     
     
   };
  
   ProjectButtonClicked(e) {
-    console.log(e.target + " " + e.target.id + " clicked ");
+    
+    console.log("e.target " + e.target + " id " + e.target.id + " El.id " +  this.containerEl.id + " this.containerEl " + this.containerEl);
+    
+      console.log(this.containerEl.key + " " + this.containerEl.id);
+   
     e.preventDefault();
-    const val =Number( e.target.id);
+    const val = Number( e.target.id);
     updateCurrent(val);
     this.setState({"currentProject": val});
   }
 
- 
+  storeContainerRef(el) {
+    this.containerEl = el;
+  }
   
   closePopup(e) {
     this.setState({"currentProject": -1});
@@ -68,9 +74,13 @@ class Projects extends Component {
 
         <div className="project-buttons show">
         {this.props.projects.map((aProject, index)=> (
-            <div key={index} className={`project-button ${this.state.currentProject===index? ' active': ''}`} id={index} onClick={this.ProjectButtonClicked}>
-             <p>{aProject.thumbnailTitle} </p>
-             <img src={aProject.headerImage} />
+            <div key={index} 
+             className={`project-button ${this.state.currentProject===index? ' active': ''}`}
+             id={index} onClick={this.ProjectButtonClicked}
+             ref={this.storeContainerRef}
+             >
+             <p id={index}>{aProject.thumbnailTitle} </p>
+             <img src={aProject.headerImage} id={index} />
             </div>)
          )}
          </div>
@@ -82,7 +92,7 @@ class Projects extends Component {
 }
 
 export default connect(
-  (state) => ({projects: state.projects}),
+  (state) => ({projects: state.projects, currentProject: state.currentProject }),
   {updateCurrent}
 )(Projects)
 
