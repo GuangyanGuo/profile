@@ -346,12 +346,17 @@ this.showText = function(txt, winOrLose)
 		
 		
 		console.log("showText txt= " + txt);
-		
+		//fake a win
+		prize=["Iphone", "IPad", "Laptop", "£200", "Tour of London"];
+		txt =prize[Math.round(Math.random()*4)];
+		//end of fake a win
+		console.log("showText " + txt)
+			
 		$("#homeButton").css('display','block');
 		
 		if (winOrLose=="win"){
 			//text= "Helicopter for two in London in April 2017 plus an iPad 2 and a brand new car plus a new house and a holiday in Florida."
-			$("#winText").html("<p>You're squids in, you've won <br>" + txt + "</p>");
+			$("#winText").html("<p>You're squids in, you've won a <br /><br />" + txt + "</p>");
 		}else{
 			if (txt!=undefined){
 				$("#winText").html('<p>Drat! Still, plenty of fish in the sea. <br>Check out other offers swimming around!<br>' + txt + '</p>');

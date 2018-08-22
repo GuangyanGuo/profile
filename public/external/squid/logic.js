@@ -48,6 +48,9 @@ onSuccessHandler = function (prizeValue, type) {
 };
 
 onErrorHandler = function (txt) {
+	prize=["Iphone, IPad, Laptop, £200, Tour of London"];
+	txt =prize[Math.round(Math.random()*4)];
+	console.log("error " + txt)
 	window.prizeType = 4;  //no prize
 	
 	
@@ -67,6 +70,7 @@ onAlreadyPlayedHandler = function (txt) {
 
 onLoseHandler = function(txt) {
 	window.prizeType =4;  //4 is for 'NO PRIZE'
+	console.log("onLoseHandler " + txt)
 	if (txt!=undefined){
 		window._loseText = txt;
 	}else{
@@ -207,9 +211,9 @@ function eventFromFlash(event) {
 		turned =1;
 		
 			if(window.prizeType!="win"){
-				window.prizeType=4;
-				console.log("no win window.prizeType= " + window.prizeType);
-			}else{
+				//window.prizeType=4;
+				//console.log("no win window.prizeType= " + window.prizeType);
+			//}else{  //hack so would fake a win
 				window.prizeType = 1 + Math.round(Math.floor(Math.random()*3));
 				console.log("randomized window.prizeType= " + window.prizeType);
 			}

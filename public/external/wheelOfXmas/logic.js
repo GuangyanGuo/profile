@@ -37,6 +37,8 @@ onSuccessHandler = function (text) {
 
 onErrorHandler = function (text) {
 	gameView.errorReceived();
+	console.log("onErrorHandler " + text)
+	if (!text) text = "You didn't win this time."
 	gameView.loseScenarioPlay(text);
 };
 
@@ -53,6 +55,7 @@ onAlreadyPlayedHandler = function (txt) {
 };
 
 onLoseHandler = function(txt) {
+	console.log("onLoseHandler " + txt)
 	gameView.loseScenarioPlay(txt);
 }
 
