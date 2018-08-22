@@ -439,7 +439,7 @@ this.showText = function(text, whichText)
 			var prizeTextPosX =0.5;
 		}else{
 			
-			prizeTextPosY =0.48;
+			prizeTextPosY =0.58;
 			prizeTextPosX =0.4
 		}
 		

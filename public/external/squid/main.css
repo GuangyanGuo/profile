@@ -90,7 +90,7 @@ a:active {
 	#pinkyText{position: absolute; color: #ffffff; font-size: 20px; z-index:300021; left:60px; top:340px}
 	#inkyText{position: absolute; color: #ffffff; font-size: 20px; z-index:300021; left:185px; top:340px}
 	#dinkyText{position: absolute; color: #ffffff; font-size: 20px; z-index:300021; left:320px; top:340px}
-	#squids{position: absolute; left: 0px; top:100px; display: none; z-index:3007;}
+	#squids{position: absolute; left: 0px; top:-100px; display: none; z-index:3007;}
 	#totalPrizeText{position: absolute; top:-20px; width:100%; font-size: 20px; z-index:3005;}
 	#winText { font-size: 16px; position:absolute; left:80px; top:280px; width: 200px; z-index:300000; display: none; text-align:center};
 	#playGame { position: absolute; left: 0px; top: 325px; width:234px; height:47px; z-index:300015;}
